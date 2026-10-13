@@ -16,7 +16,7 @@
     "@visioncortex/vtracer": "^1.0.0-alpha.4",
     "fflate": "0.8.2",
     "libheif-js": "^1.19.8",
-    "next": "15.5.4",
+    "next": "15.5.9",
     "onnxruntime-web": "^1.22.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
