@@ -1,0 +1,191 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: color-mix(in srgb, var(--ink) 55%, transparent);
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 760px;
+  max-height: calc(100dvh - 32px);
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: var(--bg);
+}
+
+.imgWrap {
+  position: relative;
+  max-width: 100%;
+  max-height: 60dvh;
+  line-height: 0;
+  touch-action: none;
+  user-select: none;
+}
+
+.imgWrap img {
+  display: block;
+  max-width: 100%;
+  max-height: 60dvh;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--ink) 45%, transparent);
+  pointer-events: none;
+}
+
+.selection {
+  position: absolute;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 9999px color-mix(in srgb, var(--ink) 45%, transparent);
+  cursor: move;
+}
+
+/* .shade + selection 이중 어둡게를 피하려고 selection의 box-shadow로 바깥을 덮는다 */
+.imgWrap .shade {
+  display: none;
+}
+
+.handle {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 1px solid var(--core);
+  border-radius: 2px;
+}
+
+.h_nw {
+  left: -8px;
+  top: -8px;
+  cursor: nwse-resize;
+}
+.h_ne {
+  right: -8px;
+  top: -8px;
+  cursor: nesw-resize;
+}
+.h_sw {
+  left: -8px;
+  bottom: -8px;
+  cursor: nesw-resize;
+}
+.h_se {
+  right: -8px;
+  bottom: -8px;
+  cursor: nwse-resize;
+}
+
+.controls {
+  padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--shell);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ratios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ratio,
+.ratioOn {
+  font: inherit;
+  font-size: var(--fs-meta);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--shell);
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.ratioOn {
+  border-color: var(--core);
+  color: var(--core);
+  font-weight: var(--fw-semibold);
+}
+
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fields label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+}
+
+.fields input {
+  width: 84px;
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid var(--shell);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.text {
+  font: inherit;
+  font-size: var(--fs-body);
+  background: none;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.apply {
+  font: inherit;
+  font-size: var(--fs-button);
+  font-weight: var(--fw-semibold);
+  color: #fff;
+  background: var(--core);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.apply:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hint,
+.error {
+  margin: 0;
+  font-size: var(--fs-meta);
+  color: var(--alert);
+}

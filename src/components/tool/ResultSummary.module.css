@@ -1,0 +1,122 @@
+.summary {
+  padding: 20px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--core) 6%, transparent);
+}
+
+.headline {
+  margin: 0;
+  font-size: var(--fs-section);
+  font-weight: var(--fw-semibold);
+}
+
+.check {
+  color: var(--core);
+}
+
+.failed {
+  color: var(--alert);
+}
+
+/* 감소율이 가장 큰 글자다 (6.3) */
+.stat {
+  margin: 8px 0 0;
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+}
+
+.reduction {
+  color: var(--core);
+}
+
+.actions {
+  margin-top: 14px;
+}
+
+.primary {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: var(--fs-button);
+  font-weight: var(--fw-semibold);
+  color: #fff;
+  background: var(--core);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.hint,
+.note {
+  margin: 8px 0 0;
+  font-size: var(--fs-meta);
+  opacity: 0.8;
+}
+
+/* "클릭하면 비교" 안내 — 살짝 눈에 띄게 */
+.tip {
+  margin: 12px 0 0;
+  padding: 8px 12px;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  color: var(--core);
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--core) 40%, var(--shell));
+  border-radius: var(--radius-sm);
+}
+
+.tip span {
+  margin-right: 4px;
+}
+
+/* 미리캔버스 조각 수 경고 */
+.warnBox {
+  margin: 12px 0 0;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--alert);
+  border-radius: var(--radius-sm);
+}
+
+.warnTitle {
+  margin: 0 0 10px;
+  font-size: var(--fs-meta);
+  line-height: 1.5;
+}
+
+.warnAction {
+  font: inherit;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  color: #fff;
+  background: var(--core);
+  border: 1px solid var(--core);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.warnHow {
+  margin-top: 10px;
+  font-size: var(--fs-meta);
+}
+
+.warnHow summary {
+  cursor: pointer;
+  font-weight: var(--fw-semibold);
+  color: var(--core);
+}
+
+.warnHow ol {
+  margin: 10px 0 6px;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.warnHow li {
+  margin-bottom: 4px;
+}
+
+.warnHow p {
+  margin: 6px 0 0;
+  opacity: 0.75;
+}

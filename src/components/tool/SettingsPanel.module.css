@@ -1,0 +1,313 @@
+.panel {
+  position: sticky;
+  top: calc(var(--privacy-h) + 12px);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--shell);
+  border-radius: var(--radius);
+}
+
+.locked {
+  opacity: 0.6;
+}
+
+/* 데스크톱: 시작 버튼이 패널 최상단 첫 요소 (6.3). 모바일: 하단 고정 바가 대신함 */
+.actionSlot {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .actionSlot {
+    display: none;
+  }
+}
+
+.primary,
+.secondary {
+  width: 100%;
+  padding: 12px 16px;
+  font: inherit;
+  font-size: var(--fs-button);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid var(--core);
+}
+
+.primary {
+  color: #fff;
+  background: var(--core);
+}
+
+.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondary {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--shell);
+}
+
+.lockNote,
+.hint {
+  margin: 0;
+  font-size: var(--fs-meta);
+  opacity: 0.7;
+}
+
+.group {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-inline-size: 0;
+}
+
+/* 모바일: 설정 접힘 토글 (6.4). 데스크톱은 항상 펼침 */
+.mobileToggle {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 0;
+    font: inherit;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-semibold);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  .group:not(.groupOpen) {
+    display: none;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+}
+
+.label select,
+.sub input[type="number"] {
+  font: inherit;
+  padding: 8px;
+  border: 1px solid var(--shell);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+
+.sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.sub input[type="range"] {
+  flex: 1;
+  min-width: 120px;
+}
+
+.sub input[type="number"] {
+  width: 90px;
+}
+
+.unit {
+  font-size: var(--fs-meta);
+  opacity: 0.7;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+}
+
+.presets button {
+  font: inherit;
+  font-size: var(--fs-meta);
+  padding: 4px 10px;
+  border: 1px solid var(--shell);
+  border-radius: 999px;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.presetOn {
+  border-color: var(--core) !important;
+  color: var(--core);
+  font-weight: var(--fw-semibold);
+}
+
+/* 변환 방식 세그먼트 */
+.segmented {
+  display: flex;
+  border: 1px solid var(--shell);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.seg,
+.segOn {
+  flex: 1;
+  font: inherit;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  padding: 8px 6px;
+  background: var(--bg);
+  border: none;
+  cursor: pointer;
+}
+
+.seg + .seg,
+.seg + .segOn,
+.segOn + .seg {
+  border-left: 1px solid var(--shell);
+}
+
+.segOn {
+  background: var(--core);
+  color: #fff;
+}
+
+.vec {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+}
+
+.swatchRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.swatchMini {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 1px solid var(--shell);
+}
+
+.advanced {
+  border-top: 1px solid var(--shell);
+  padding-top: 10px;
+}
+
+.advanced summary {
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  list-style: revert;
+}
+
+.advanced[open] summary {
+  margin-bottom: 12px;
+}
+
+.advanced > .label {
+  margin-top: 12px;
+}
+
+.vecReset {
+  margin-top: 12px;
+  font: inherit;
+  font-size: var(--fs-meta);
+  padding: 5px 12px;
+  border: 1px solid var(--shell);
+  border-radius: 999px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.modes {
+  display: flex;
+  gap: 14px;
+  font-weight: var(--fw-regular);
+}
+
+.modes label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--fs-meta);
+  line-height: 1.4;
+}
+
+.rec {
+  color: var(--core);
+}
+
+.crop {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  padding-top: 10px;
+  border-top: 1px solid var(--shell);
+}
+
+.cropOpen {
+  align-self: start;
+  font: inherit;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  padding: 6px 14px;
+  border: 1px solid var(--core);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--core);
+  cursor: pointer;
+}
+
+.cropActive {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: var(--fw-regular);
+}
+
+.cropActive button {
+  font: inherit;
+  font-size: var(--fs-meta);
+  padding: 4px 10px;
+  border: 1px solid var(--shell);
+  border-radius: 999px;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+  .panel {
+    position: static;
+  }
+}

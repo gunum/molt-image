@@ -1,0 +1,219 @@
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1.5px solid transparent;
+}
+
+/* 6.1.1 상태별 테두리 */
+.waiting {
+  border: 1.5px dashed var(--shell);
+}
+.processing {
+  border-color: transparent; /* SVG 오버레이가 테두리를 그린다 */
+}
+.done {
+  border: 1.5px solid var(--ink);
+  background: color-mix(in srgb, var(--core) 6%, transparent);
+}
+
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover,
+.clickable:focus-visible {
+  outline: 2px solid var(--core);
+  outline-offset: 1px;
+  background: color-mix(in srgb, var(--core) 10%, transparent);
+}
+.failed {
+  border: 1.5px solid var(--alert);
+}
+.excluded {
+  border: 1.5px dashed var(--shell);
+  opacity: 0.65;
+}
+
+.thumb {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--shell);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* "클릭하면 비교" 상시 힌트 — done 항목 썸네일 우하단 */
+.zoomBadge {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  line-height: 1;
+  color: #fff;
+  background: color-mix(in srgb, var(--ink) 78%, transparent);
+  border-radius: 4px 0 var(--radius-sm) 0;
+  pointer-events: none;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 벡터 결과는 잘리지 않게 + 투명 배경 체크무늬 */
+.thumbVector {
+  background: repeating-conic-gradient(#e8e8e8 0% 25%, #fff 0% 50%) 50% / 10px
+    10px;
+}
+.thumbVector img {
+  object-fit: contain;
+}
+
+.thumbPlaceholder {
+  font-size: 20px;
+  color: var(--ink);
+  opacity: 0.5;
+}
+
+.body {
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: var(--fs-filename);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  margin: 2px 0 0;
+  font-size: var(--fs-meta);
+  opacity: 0.8;
+}
+
+.delta {
+  color: var(--core);
+}
+
+.reason {
+  color: var(--alert);
+  opacity: 1;
+}
+
+.note {
+  margin: 2px 0 0;
+  font-size: var(--fs-meta);
+  color: var(--core);
+}
+
+.badge {
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--shell);
+  color: var(--ink);
+}
+.badge_done {
+  background: var(--core);
+  color: #fff;
+}
+.badge_failed,
+.badge_excluded {
+  background: var(--alert);
+  color: #fff;
+}
+.badge_processing {
+  background: var(--ink);
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.download,
+.remove,
+.retry,
+.compare {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background: none;
+  color: var(--ink);
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.download {
+  color: var(--core);
+  font-size: 18px;
+}
+
+.compare {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.retry {
+  color: var(--alert);
+  font-size: 16px;
+}
+
+.remove:hover,
+.download:hover,
+.retry:hover,
+.compare:hover {
+  background: var(--shell);
+}
+
+@media (max-width: 520px) {
+  .item {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "thumb body actions"
+      "thumb badge actions";
+    align-items: start;
+    column-gap: 10px;
+    row-gap: 6px;
+  }
+  .thumb {
+    grid-area: thumb;
+    align-self: center;
+  }
+  .body {
+    grid-area: body;
+  }
+  .badge {
+    grid-area: badge;
+    justify-self: start;
+  }
+  .actions {
+    grid-area: actions;
+    align-self: center;
+  }
+}

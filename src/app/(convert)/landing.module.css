@@ -1,0 +1,47 @@
+/* P-01 랜딩 페이지 (6.5). 제목·한 줄 설명만 도구 위에 둔다 — 큰 히어로를 두지 않는다. */
+
+.landing {
+  max-width: var(--max-page);
+  margin: 0 auto;
+  padding: 24px 16px 0;
+}
+
+.h1 {
+  margin: 8px 0 4px;
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+}
+
+.tagline {
+  margin: 0;
+  font-size: var(--fs-body);
+  opacity: 0.8;
+}
+
+/* 설명·FAQ (D) — SEO를 위해 실제 텍스트로 렌더, 사용자 흐름을 막지 않게 도구 아래 */
+.landing :global(section) {
+  margin-top: 40px;
+}
+
+.landing :global(h2) {
+  font-size: var(--fs-section);
+  font-weight: var(--fw-semibold);
+  margin: 24px 0 8px;
+}
+
+.landing :global(dt) {
+  font-weight: var(--fw-semibold);
+  margin-top: 12px;
+}
+
+.landing :global(nav) {
+  margin: 32px 0 48px;
+}
+
+.landing :global(nav ul) {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}

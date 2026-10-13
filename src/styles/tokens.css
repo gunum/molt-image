@@ -1,0 +1,86 @@
+/*
+ * 6.1.2 색 · 6.1.3 타이포그래피
+ * CSS 변수로 토큰 체계를 그대로 옮긴다 (7.1 — 런타임 비용 없음).
+ */
+
+:root {
+  /* 색 (6.1.2) — 껍질은 흐리고, 알맹이는 선명하다 */
+  --bg: #f2f4f3; /* 배경. 미색이 아닌 옅은 회녹 */
+  --shell: #d6d9d4; /* 대기 상태 테두리, 비활성 요소 */
+  --ink: #1c2321; /* 본문, 완료 테두리 */
+  --core: #135e52; /* 액션(시작 버튼, 완료 채움), 링크 */
+  --alert: #b23a2e; /* 오류, 실패 */
+  --surface: #ffffff; /* 설정 패널, 모달 */
+
+  /* 타이포그래피 (6.1.3) — 단일 패밀리, 웨이트로 위계 */
+  --font-sans: "Pretendard", "Pretendard Variable", -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+    system-ui, sans-serif;
+
+  --fs-title: 28px; /* 화면 제목 / 700 */
+  --fs-section: 18px; /* 섹션 제목 / 600 */
+  --fs-body: 15px; /* 본문 / 400 */
+  --fs-filename: 15px; /* 파일명 / 600 */
+  --fs-meta: 13px; /* 보조 정보 (해상도, 용량) / 400, tabular */
+  --fs-button: 16px; /* 버튼 / 600 */
+
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* 포커스 표시 (6.8) */
+  --focus-ring: 2px solid var(--core);
+  --focus-offset: 2px;
+
+  /* 레이아웃 (6.2) */
+  --max-page: 1120px;
+  --max-single: 720px;
+  --radius: 10px;
+  --radius-sm: 8px;
+  --header-h: 56px;
+  --privacy-h: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 용량·해상도는 목록에서 자릿수 정렬되어야 스캔이 된다 (6.1.3) */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--core);
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* 모션은 두 곳에만 (6.1.4). reduced-motion이면 전환을 즉시 처리 (6.9) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

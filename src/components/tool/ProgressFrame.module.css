@@ -1,0 +1,21 @@
+.host {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.fill {
+  transition: stroke-dasharray 0.2s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+}

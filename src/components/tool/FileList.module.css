@@ -1,0 +1,27 @@
+.wrap {
+  min-width: 0;
+}
+
+.count {
+  margin: 0 0 12px;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  opacity: 0.8;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 가상 스크롤 뷰포트 (5.5, 20장 초과) */
+.viewport {
+  border: 1px solid var(--shell);
+  border-radius: var(--radius);
+  padding: 8px;
+}
+

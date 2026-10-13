@@ -1,0 +1,63 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--shell);
+  border-left: 3px solid var(--alert);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-meta);
+}
+
+.icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--alert);
+  color: #fff;
+  font-weight: var(--fw-bold);
+}
+
+.msg {
+  margin: 0;
+  flex: 1;
+}
+
+.action {
+  flex: none;
+  font: inherit;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  color: var(--core);
+  background: none;
+  border: 1px solid var(--core);
+  border-radius: 999px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.close {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.close:hover {
+  background: var(--shell);
+}

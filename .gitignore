@@ -1,0 +1,13 @@
+/node_modules
+/.next
+/out
+/build
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.env*.local
+/coverage
+
+# Phase 3 업스케일 자산 — scripts/setup-upscale.mjs 가 복원 (postinstall)
+/public/ort
+/public/models/*.onnx

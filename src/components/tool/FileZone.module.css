@@ -1,0 +1,55 @@
+.zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 320px;
+  max-width: var(--max-single);
+  margin: 0 auto;
+  padding: 32px;
+  border: 2px dashed var(--shell);
+  border-radius: var(--radius);
+  text-align: center;
+  cursor: pointer;
+}
+
+.compact {
+  min-height: 200px;
+}
+
+.dragging {
+  border-style: solid;
+  border-color: var(--core);
+  background: color-mix(in srgb, var(--core) 8%, transparent);
+}
+
+.prompt {
+  margin: 0;
+  font-size: var(--fs-section);
+  font-weight: var(--fw-semibold);
+}
+
+.pick {
+  padding: 10px 20px;
+  font: inherit;
+  font-size: var(--fs-button);
+  font-weight: var(--fw-semibold);
+  color: #fff;
+  background: var(--core);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.formats {
+  margin: 0;
+  font-size: var(--fs-meta);
+  opacity: 0.55;
+}
+
+.hint {
+  margin: 0;
+  font-size: var(--fs-meta);
+  opacity: 0.55;
+}
